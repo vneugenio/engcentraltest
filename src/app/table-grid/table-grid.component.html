@@ -1,0 +1,11 @@
+<table>
+  <tr *ngFor="let row of gridTable">
+    <td
+      *ngFor="let column of row"
+      (click)="toggleState(column)">{{column.state | uppercase}}</td>
+  </tr>
+</table>
+
+<app-override></app-override>
+
+<button (click)="generateGrid()">Reset</button>
