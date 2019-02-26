@@ -1,13 +1,17 @@
 <div>
-  <form>
+  <form [formGroup]="overrideForm">
     <label>Manual Override</label>
-    <label for="">X: </label>
-    <input type="text">
-    <label for="">Y: </label>
-    <input type="text">
+    <div>
+      <label for="">Y: </label>
+      <input formControlName="x" type="text">
+    </div>
+    <div>
+      <label for="">X: </label>
+      <input formControlName="y"type="text">
+    </div>
     <label for="">Set To:</label>
-    <input type="radio" value="on" name="stat">
-    <input type="radio" value="off" name="stat">
-    <button>Confirm</button>
+    <input formControlName="state" type="radio" value="on"> ON
+    <input formControlName="state" type="radio" value="off"> OFF
   </form>
+  <button (click)="sendData()">Confirm</button>
 </div>

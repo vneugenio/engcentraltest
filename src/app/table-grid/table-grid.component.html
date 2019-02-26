@@ -6,6 +6,6 @@
   </tr>
 </table>
 
-<app-override></app-override>
+<app-override (coords)="getCoords($event)"></app-override>
 
 <button (click)="generateGrid()">Reset</button>

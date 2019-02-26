@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-table-grid',
@@ -12,6 +12,19 @@ export class TableGridComponent implements OnInit {
 
   ngOnInit() {
     this.generateGrid();
+  }
+
+  coordinates: object;
+
+  getCoords($event): void {
+    this.coordinates = $event;
+    const  x = this.coordinates['x'];
+    const  y  = this.coordinates['y'];
+    const  state = this.coordinates['state'];
+
+    this.gridTable[x-1][y-1]['state'] = state;
+
+    console.log(this.gridTable);
   }
 
   // toggle if 'on' or 'off'
@@ -41,6 +54,7 @@ export class TableGridComponent implements OnInit {
       grid.push(col);
     }
     this.gridTable = grid;
+    console.log('test ' + this.coordinates['status']);
   }
 
 }
